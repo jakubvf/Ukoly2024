@@ -4,7 +4,7 @@ import random
 
 
 class Matice:
-    def __init__(self, n: int, m: int, data=None):
+    def __init__(self, n: int, m: int, data: list[list[int]] = None):
         """Inicializuje matici n x m."""
         if data is None:
             self.data = [[random.randint(0, 9) for _ in range(m)] for _ in range(n)]
@@ -24,7 +24,7 @@ class Matice:
         return Matice(self.n, self.m, [[self.data[i][j] + other.data[i][j] for j in range(self.m)] for i in range(self.n)])
 
 
-    def __mul__(self, other: Union[Matice, int]) -> Union[Matice, int]:
+    def __mul__(self, other: Union[Matice, int]) -> Matice:
         """Vynásobí aktuální matici maticí nebo skalárem."""
         if isinstance(other, Matice):
             if len(self.data[0]) != len(other.data):
