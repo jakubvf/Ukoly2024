@@ -24,7 +24,7 @@ class Matice:
         return Matice(self.n, self.m, [[self.data[i][j] + other.data[i][j] for j in range(self.m)] for i in range(self.n)])
 
 
-    def __mul__(self, other: Union[Matice, int]) -> Matice:
+    def __mul__(self, other: Union[Matice, int]) -> Union[Matice, int]:
         """Vynásobí aktuální matici maticí nebo skalárem."""
         if isinstance(other, Matice):
             if len(self.data[0]) != len(other.data):
